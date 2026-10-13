@@ -1,6 +1,5 @@
 # modern-cpp-practice
 
-[![Build](https://github.com/arman-aru/modern-cpp-practice/actions/workflows/build.yml/badge.svg)](https://github.com/arman-aru/modern-cpp-practice/actions/workflows/build.yml)
 ![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
 
 A structured, hands-on path through modern C++, from language fundamentals to object-oriented design.
@@ -38,11 +37,11 @@ Each file is a standalone program with its own `main()`.
 clang++ -std=c++17 -Wall -Wextra -o /tmp/ex 01-fundamentals/08-functions.cpp && /tmp/ex
 ```
 
-`g++ -std=c++17` works the same way. CI compiles every exercise with GCC and Clang on each push.
+`g++ -std=c++17` works the same way.
 
 ## Conventions
 
-- **Standard:** C++17, with no external dependencies.
+- **Standard:** C++17, with no external dependencies. Every exercise compiles cleanly with `-Wall`.
 - **One concept per file.** Each file isolates a single idea so it is easy to review and revisit.
 - **Comments are in Banglish** (Bengali written in Latin script), my native language. They are my own explanations of *why* the code behaves the way it does. Identifiers and code stay in English.
 - [`NOTES.md`](NOTES.md) and [`05-oop-university/NOTES-OOP.md`](05-oop-university/NOTES-OOP.md) hold concise Q&A notes for each concept. [`PROGRESS.md`](PROGRESS.md) tracks the roadmap.
