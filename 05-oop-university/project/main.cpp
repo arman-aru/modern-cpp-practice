@@ -74,6 +74,26 @@ public:
     string getEmail() { return email; }
 };
 
+class Reservation
+{
+private:
+    Customer *customer;
+    Vehicle *vehicle;
+
+public:
+    Reservation(Customer *c, Vehicle *v)
+    {
+        customer = c;
+        vehicle = v;
+    }
+
+    void printInfo()
+    {
+        cout << "Reservation: " << customer->getName() << " booked ";
+        vehicle->printInfo();
+    }
+};
+
 int main()
 {
     vector<Vehicle *> showroom;
@@ -83,13 +103,14 @@ int main()
     {
         v->printInfo();
     }
+
+    Customer c1("Arman", "arman@mail.com");
+    cout << "Customer: " << c1.getName() << " | " << c1.getEmail() << "\n";
+    Reservation r1(&c1, showroom[0]);
+    r1.printInfo();
     for (Vehicle *v : showroom)
     {
         delete v;
     }
-    Customer c1("Arman", "arman@mail.com");
-    cout << "Customer: " << c1.getName() << " | " << c1.getEmail() << "\n";
-
-
     return 0;
 }
