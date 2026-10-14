@@ -43,15 +43,39 @@ public:
     }
 };
 
+class Car : public Vehicle
+
+{
+private:
+    int doors;
+
+public:
+    Car(string m, int d) : Vehicle(m)
+
+    {
+        doors = d;
+    }
+    void show() override
+    {
+        cout << "Ami ekta Car: " << model << " " << doors << " doors\n";
+    }
+};
+
 int main()
 {
-    Vehicle v("Honda");
-    v.show();
     Sportsbike r15("Yamaha R15", 155);
+    Car civic("Honda Civic", 4);
+    Car corolla("Toyota Corolla", 4);
 
-    r15.show();
-    Vehicle *p = &r15;
-    p->show();
+    Vehicle *showroom[3];
+    showroom[0] = &r15;
+    showroom[1] = &civic;
+    showroom[2] = &corolla;
+
+    for (int i = 0; i < 3; i++)
+    {
+        showroom[i]->show();
+    }
+
     return 0;
 }
-
