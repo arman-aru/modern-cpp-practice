@@ -54,5 +54,8 @@ int main()
 Sportsbike r15  ("Yamaha R15", 155); 
 
     r15.show();
+    Vehicle* p = &r15;
+p->show();
+
     return 0;
 }
