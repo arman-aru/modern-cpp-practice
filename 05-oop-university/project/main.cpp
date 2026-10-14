@@ -23,8 +23,8 @@ public:
         cout << "Vehicle destroyed: " << brand << " " << model << "\n";
     }
 };
-class Sportsbike : public Vehicle
 
+class Sportsbike : public Vehicle
 {
 private:
     int engineCC;
@@ -40,10 +40,28 @@ public:
     }
 };
 
+class Car : public Vehicle
+{
+private:
+    int numberOfDoors;
+
+public:
+    Car(string b, string m, double p, int d) : Vehicle(b, m, p)
+    {
+        numberOfDoors = d;
+    }
+    void printInfo() override
+    {
+        cout << brand << " " << model << " | Price: " << price << " | Number Of Doors: " << numberOfDoors << "\n";
+    }
+};
+
 int main()
 {
     Sportsbike bike("Yamaha", "R15", 5500, 155);
-    bike. printInfo();
+    bike.printInfo();
+    Car sedan("BMW", "E90", 50000, 5);
+    sedan.printInfo();
 
     return 0;
 }
