@@ -6,20 +6,18 @@
 #include <string>
 using namespace std;
 
-
-
-class Vehicle 
+class Vehicle
 {
-    protected:
+protected:
     string model;
 
-    public:
+public:
     Vehicle(string m)
     {
         model = m;
     }
 
-   virtual void show()
+    virtual void show()
     {
 
         cout << "Ami ekta Vehicle: " << model << "\n";
@@ -29,33 +27,31 @@ class Vehicle
 class Sportsbike : public Vehicle
 
 {
-    private:
-	int engineCC;
+private:
+    int engineCC;
 
-    public:
-Sportsbike(string m, int cc) : Vehicle(m)
+public:
+    Sportsbike(string m, int cc) : Vehicle(m)
 
     {
- engineCC = cc;
-
+        engineCC = cc;
     }
 
     void show() override
     {
         cout << "Ami ekta Sportbike: " << model << " " << engineCC << "cc\n";
-    };
-
+    }
 };
 
 int main()
 {
     Vehicle v("Honda");
     v.show();
-Sportsbike r15  ("Yamaha R15", 155); 
+    Sportsbike r15("Yamaha R15", 155);
 
     r15.show();
-    Vehicle* p = &r15;
-p->show();
-
+    Vehicle *p = &r15;
+    p->show();
     return 0;
 }
+
