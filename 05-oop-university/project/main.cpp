@@ -88,9 +88,10 @@ public:
 
     void showAll()
     {
-        for (Vehicle *v : vehicles)
+        for (int i = 0; i < (int)vehicles.size(); i++)
         {
-            v->printInfo();
+            cout << i << ". ";
+            vehicles[i]->printInfo();
         }
     }
 
