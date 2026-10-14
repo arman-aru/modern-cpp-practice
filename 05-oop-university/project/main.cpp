@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <vector>
+
 using namespace std;
 
 class Vehicle
@@ -58,10 +60,17 @@ public:
 
 int main()
 {
-    Sportsbike bike("Yamaha", "R15", 5500, 155);
-    bike.printInfo();
-    Car sedan("BMW", "E90", 50000, 5);
-    sedan.printInfo();
+    vector<Vehicle *> showroom;
+    showroom.push_back(new Sportsbike("Yamaha", "R15", 5500, 155));
+    showroom.push_back(new Car("BMW", "E90", 50000, 4));
+    for (Vehicle *v : showroom)
+    {
+        v->printInfo();
+    }
+    for (Vehicle *v : showroom)
+    {
+        delete v;
+    }
 
     return 0;
 }
