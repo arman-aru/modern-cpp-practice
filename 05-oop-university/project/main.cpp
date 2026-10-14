@@ -134,22 +134,61 @@ public:
 int main()
 {
     Inventory inventory;
-    inventory.addVehicle(new Sportsbike("Yamaha", "R15", 5500, 155));
+    inventory.addVehicle(new Sportsbike("Yamaha", "R1M", 10000, 1000));
+    inventory.addVehicle(new Sportsbike("Suzuki", "GSXR", 20000, 1000));
+    inventory.addVehicle(new Sportsbike("BMW", "1000RR", 30000, 1000));
+    inventory.addVehicle(new Sportsbike("CF Moto", "V4 SR-RR", 40000, 1000));
     inventory.addVehicle(new Car("BMW", "E90", 50000, 4));
-    inventory.showAll();
+    inventory.addVehicle(new Car("Mercedes", "AMG", 50000, 4));
+    inventory.addVehicle(new Car("Audi", "B8", 50000, 4));
+    inventory.addVehicle(new Car("Toyota", "E90", 50000, 4));
 
-    Customer c1("Arman", "arman@mail.com");
-    cout << "Customer: " << c1.getName() << " | " << c1.getEmail() << "\n";
+    int choice = -1;
+    while (choice != 0)
+    {
+        cout << "\n=== Dealership Menu ===\n";
+        cout << "1. Show all vehicles\n";
+        cout << "2. Reserve a vehicle\n";
+        cout << "0. Exit\n";
+        cout << "Choose: ";
+        cin >> choice;
 
-    Reservation r1(&c1, inventory.getVehicle(0));
-    r1.printInfo();
-    try
-    {
-        inventory.getVehicle(10)->printInfo();
-    }
-    catch (const out_of_range &e)
-    {
-        cout << "Error: " << e.what() << "\n";
+        if (choice == 1)
+        {
+            inventory.showAll();
+        }
+        else if (choice == 2)
+        {
+            string name, email;
+
+            int index;
+            cout << "Your name: ";
+            cin >> name;
+            cout << "Your Email: ";
+            cin >> email;
+            cout << "Vehicle number (0, 1, ....): ";
+
+            cin >> index;
+
+            try
+            {
+                Customer customer(name, email);
+                Reservation reservation(&customer, inventory.getVehicle(index));
+                reservation.printInfo();
+            }
+            catch (const out_of_range &e)
+            {
+                cout << "Error: " << e.what() << "\n";
+            }
+        }
+        else if (choice == 0)
+        {
+            cout << "Goodbye!\n";
+        }
+        else
+        {
+            cout << "Invalid option\n";
+        }
     }
 
     return 0;
