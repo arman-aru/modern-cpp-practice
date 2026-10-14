@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <stdexcept>
 
 using namespace std;
 
@@ -95,6 +96,11 @@ public:
 
     Vehicle *getVehicle(int index)
     {
+        if (index < 0 || index >= (int)vehicles.size())
+        {
+            throw out_of_range("Vehicle not found at index " + to_string(index));
+        }
+
         return vehicles[index];
     }
     ~Inventory()
@@ -137,6 +143,14 @@ int main()
 
     Reservation r1(&c1, inventory.getVehicle(0));
     r1.printInfo();
+    try
+    {
+        inventory.getVehicle(10)->printInfo();
+    }
+    catch (const out_of_range &e)
+    {
+        cout << "Error: " << e.what() << "\n";
+    }
 
     return 0;
 }
