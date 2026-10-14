@@ -19,7 +19,7 @@ class Vehicle
         model = m;
     }
 
-    void show()
+   virtual void show()
     {
 
         cout << "Ami ekta Vehicle: " << model << "\n";
@@ -40,7 +40,7 @@ Sportsbike(string m, int cc) : Vehicle(m)
 
     }
 
-    void show()
+    void show() override
     {
         cout << "Ami ekta Sportbike: " << model << " " << engineCC << "cc\n";
     };
