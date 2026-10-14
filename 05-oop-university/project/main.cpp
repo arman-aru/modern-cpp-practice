@@ -58,6 +58,22 @@ public:
     }
 };
 
+class Customer
+{
+private:
+    string name;
+    string email;
+
+public:
+    Customer(string n, string e)
+    {
+        name = n;
+        email = e;
+    }
+    string getName() { return name; }
+    string getEmail() { return email; }
+};
+
 int main()
 {
     vector<Vehicle *> showroom;
@@ -71,6 +87,9 @@ int main()
     {
         delete v;
     }
+    Customer c1("Arman", "arman@mail.com");
+    cout << "Customer: " << c1.getName() << " | " << c1.getEmail() << "\n";
+
 
     return 0;
 }
