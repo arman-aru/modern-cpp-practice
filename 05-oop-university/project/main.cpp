@@ -74,6 +74,37 @@ public:
     string getEmail() { return email; }
 };
 
+class Inventory
+{
+private:
+    vector<Vehicle *> vehicles;
+
+public:
+    void addVehicle(Vehicle *v)
+    {
+        vehicles.push_back(v);
+    }
+
+    void showAll()
+    {
+        for (Vehicle *v : vehicles)
+        {
+            v->printInfo();
+        }
+    }
+
+    Vehicle *getVehicle(int index)
+    {
+        return vehicles[index];
+    }
+    ~Inventory()
+    {
+        for (Vehicle *v : vehicles)
+        {
+            delete v;
+        }
+    }
+};
 class Reservation
 {
 private:
@@ -96,21 +127,16 @@ public:
 
 int main()
 {
-    vector<Vehicle *> showroom;
-    showroom.push_back(new Sportsbike("Yamaha", "R15", 5500, 155));
-    showroom.push_back(new Car("BMW", "E90", 50000, 4));
-    for (Vehicle *v : showroom)
-    {
-        v->printInfo();
-    }
+    Inventory inventory;
+    inventory.addVehicle(new Sportsbike("Yamaha", "R15", 5500, 155));
+    inventory.addVehicle(new Car("BMW", "E90", 50000, 4));
+    inventory.showAll();
 
     Customer c1("Arman", "arman@mail.com");
     cout << "Customer: " << c1.getName() << " | " << c1.getEmail() << "\n";
-    Reservation r1(&c1, showroom[0]);
+
+    Reservation r1(&c1, inventory.getVehicle(0));
     r1.printInfo();
-    for (Vehicle *v : showroom)
-    {
-        delete v;
-    }
+
     return 0;
 }
