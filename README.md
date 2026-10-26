@@ -13,6 +13,7 @@ The repository grows one topic at a time, and the commit history shows that prog
 | --- | --- | --- |
 | [`01-fundamentals/`](01-fundamentals) | Variables, types, control flow, functions, pointers & references, classes, memory | ✅ 11 / 11 |
 | [`05-oop-university/`](05-oop-university) | OOP course track: inheritance, polymorphism, abstraction, SOLID, design patterns | 🚧 In progress |
+| [`06-project/`](06-project) | OOP final project: Vehicle & Sportsbike Dealership System (suppliers, inventory, reservations, factory, templates, file storage) | ✅ Done |
 
 Planned next: `02-stl` (containers, iterators, algorithms), `03-algorithms` (sorting, binary search, two pointers, sliding window, recursion), `04-data-structures` (linked list, stack, queue, hash map, trees, heap). Each folder is added once it has real content.
 
